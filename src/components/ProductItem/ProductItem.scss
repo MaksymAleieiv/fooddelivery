@@ -1,0 +1,95 @@
+.product-item {
+    background-color: var(--item-background-color);
+    width: 320px;
+    height: 360px;
+    border-radius: 10px;
+
+    margin-left: 16px;
+
+    &__image-container {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 180px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    &__image-container:hover .description-hover {
+        background: rgba(255,255,255,.8)
+    }
+
+    &__image-container:hover .description-hover p {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    &__image {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 180px;
+    }
+}
+
+.product-item:hover {
+    box-shadow: 4px 10px 50px rgba(0, 0, 0, 0.07);
+}
+
+.product-info {
+    padding: 12px;
+    width: 100%;
+    height: 180px;
+    margin-top: -4px;
+
+    &__name {
+        color: var(--product-name-color);
+        font-size: 18px;
+        line-height: 21px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+}
+
+.add-to-cart-button{
+    width: 152px;
+    height: 43px;
+    border-radius: 26px;
+    background-color: var(--main-color);
+    font-weight: 550;
+    color: var(--item-background-color);
+    border: none;
+    cursor: pointer;
+    margin-left: calc(50% - 76px);
+    transition: background-color .5s ease-out;
+}
+
+.add-to-cart-button:hover {
+    transition: background-color .25s ease-out;
+    background-color: #db5005;
+}
+
+.description-hover {
+    transition: transform .3s ease-in-out,background .3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    color: #676767;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    p{
+        opacity: 0;
+        transition: transform .3s,opacity .3s;
+        transform: translateY(50px);
+    }
+}

@@ -1,0 +1,119 @@
+.top-category-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.top-category-menu {
+    margin-top: 60px;
+}
+
+.top-category-menu-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.items-wrapper{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 16px 0;
+}
+
+.category-name {
+    font-weight: 550;
+    font-size: 28px;
+    line-height: 40px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.top-category-pagination-control-container {
+    display: flex;
+}
+
+.top-category-pagination-control {
+    display: flex;
+    width: 165px;
+
+    img {
+        cursor: pointer;
+        width: 27px;
+    }
+
+    img:hover {
+        filter: invert(43%) sepia(85%) saturate(2742%) hue-rotate(357deg) brightness(100%) contrast(90%);
+        cursor: pointer;
+        width: 27px
+    }
+
+    *{
+        margin-right: 25px;
+    }
+}
+
+.control-text {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 44px;
+    width: 34px;
+    color: var(--text-color);
+}
+
+.mirroredArrow {
+    transform: scaleX(-1);
+}
+
+.category-link {
+    width: 152px;
+    height: 44px;
+    border: 1px solid var(--main-color);
+    border-radius: 26px;
+    font-weight: 550;
+    line-height: 42px;
+    color: var(--main-color);
+    text-align: center;
+    transition: background-color .25s ease-out, color .25s ease-out;
+}
+
+.category-link:hover {
+    transition: background-color .5s ease-out, color .5s ease-out;
+    background-color: var(--main-color);
+    color: var(--item-background-color);
+}
+
+.slider-container {
+
+    &__right,
+    &__left {
+        width: 40px;
+        height: 405px;
+        position: absolute;
+        display: flex;
+        z-index: 100;
+        top: 0;
+    }
+
+    &__left {
+        left: 0;
+        background: linear-gradient(to right, var(--main-background-color) 0,rgba(255,255,255,0) 100%);
+    }
+
+    &__right {
+        right: 0;
+        background: linear-gradient(to left, var(--main-background-color) 0,rgba(255,255,255,0) 100%);
+    }
+}
+
+
+.mySwiper {
+    height: 405px;
+
+    .swiper-slide {
+        max-width: 320px;
+    }
+}
+
+.swiper-pagination {
+    display: none;
+}

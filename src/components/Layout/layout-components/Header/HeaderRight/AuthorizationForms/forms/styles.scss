@@ -1,0 +1,135 @@
+.modal-auth-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h3{
+        color: var(--product-name-color);
+        font-weight: bold;
+        font-size: 24px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h3:after{
+        content: '';
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: var(--main-color);
+        margin-top: 10px;
+    }
+
+    input {
+        background-color: transparent;
+    }
+}
+
+.ReactModal__Content--after-open{
+    background-image: url(../../../../../../../assets/backgroundAuth.png)!important;
+    background-size: cover!important;
+}
+
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 280px;
+    margin-top: 15px;
+    align-items: center;
+
+    &__2inline {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        div{
+            display: flex;
+            width: 48%;
+            flex-direction: column;
+        }
+    }
+
+    &__bottom {
+
+        span {
+            color: var(--main-color);
+            cursor: pointer;
+        }
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid var(--text-secondary-color);
+        height: 28px;
+        padding: 0 3px;
+        margin-top: 10px;
+        color: var(--text-color);
+        font-size: 14px;
+    }
+
+    input.error {
+        border-bottom: 1px solid rgb(245, 50, 50);
+    }
+
+    input:hover {
+        border-bottom: 1px solid var(--main-color);
+    }
+
+    input:focus {
+        outline: none;
+        border-bottom: 1px solid var(--main-color);
+    }
+
+    button {
+        width: 220px;
+        height: 43px;
+        background: var(--main-color);
+        border-radius: 26px;
+        border: none;
+        margin-top: 25px;
+        color: var(--item-background-color);
+        cursor: pointer;
+    }
+
+}
+
+.login-password {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 129px;
+
+    input {
+        width: 123px;
+        margin-left: -6px;
+    }
+}
+
+.phone-input-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    div {
+        height: 16px;
+        font-size: 14px;
+        margin-right: -38px;
+        margin-bottom: -8px;
+        z-index: 1000;
+    }
+
+    input {
+        padding-left: 38px;
+        width: 123px;
+    }
+}
+
+.errorText {
+    font-size: 12px;
+    color: rgb(245, 50, 50);
+    padding: 3px;
+    height: 20px;
+}

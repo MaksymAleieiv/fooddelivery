@@ -1,0 +1,49 @@
+:root {
+    --text-color: #292929;
+    --main-color: #F16214;
+    --text-secondary-color: #B9B8B8;
+    --main-background-color: #FCFCFC;
+    --border-color: #ECECEC;
+    --item-background-color: #FFFFFF;
+    --product-name-color: #757575;
+  }
+
+.dark-theme {
+
+    --text-color: #FCFCFC;
+    --main-color: #1491f1;
+    --text-secondary-color: #d6d4d4;
+    --main-background-color: #03203c;
+    --border-color: #ECECEC;
+    --item-background-color: #02409d;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color)
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color)
+}
+
+.ReactModal__Body--open {
+    overflow-y: hidden;
+}
+
+.mySwiperTop {
+    height: 100%;
+    width: 100%;
+
+    > div.swiper-pagination {
+        display: block;
+
+        > span {
+            background: var(--main-color);
+        }
+    }
+}
