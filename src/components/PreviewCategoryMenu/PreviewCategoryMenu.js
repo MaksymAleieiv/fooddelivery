@@ -42,7 +42,7 @@ function PreviewCategoryMenu({categoryTop}) {
                     </div>
                     <Link to='/'>
                         <div className='category-link'>
-                            Смотреть меню
+                            Look at the menu
                         </div>
                     </Link>
                 </div>

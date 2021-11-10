@@ -39,7 +39,7 @@ function ProductItem({product}) {
                     {product.name}
                 </div>
                 <ProductTypes productTypes={product.product_type} setSelectedType={setSelectedType} selectedType={selectedType}/>
-                <button className='add-to-cart-button' onClick={addToCart}>В корзину</button>
+                <button className='add-to-cart-button' onClick={addToCart}>Add to Cart</button>
             </div>
         </div>
     )

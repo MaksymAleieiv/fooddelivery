@@ -41,7 +41,7 @@ function CartItem({cartItem}) {
                         <div className='quantity-control__increment' onClick={() => changeQuantityOfItem(1)}></div>
                     </div>
                     <div className='types_price large'>
-                        {cartItem.selected_type.price * cartItem.quantity} <span>₴</span>
+                        {cartItem.selected_type.price * cartItem.quantity} <span>$</span>
                     </div>
                 </div>
             </div>
@@ -50,4 +50,4 @@ function CartItem({cartItem}) {
     )
 }
 
-export default React.memo(CartItem)
+export default CartItem

@@ -1,5 +1,5 @@
 import React from 'react'
-import PreviewCategoryMenu from '../PreviewCategoyMenu/PreviewCategoryMenu'
+import PreviewCategoryMenu from '../PreviewCategoryMenu/PreviewCategoryMenu'
 import './styles.scss'
 
 function TopPositionsTable() {
