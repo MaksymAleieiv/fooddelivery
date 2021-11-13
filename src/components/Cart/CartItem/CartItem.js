@@ -29,7 +29,7 @@ function CartItem({cartItem}) {
             <div className='cart-item-info'>
                 <div className='cart-item-info-title'>
                     {cartItem.name}
-                    <span>, {cartItem.selected_type.weight}</span>
+                    <span>, {cartItem.selected_type.weight}{cartItem.category_name === 'drinks' ? 'l' : 'g'}</span>
                 </div>
                 <div className='cart-item-info-description'>
                     {cartItem.description}

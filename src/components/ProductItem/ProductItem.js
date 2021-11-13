@@ -16,9 +16,10 @@ function ProductItem({product}) {
                 id : product.id,
                 description: product.description,
                 selected_type : {
-                    weight : product.product_type[selectedType].weight + 'g',
+                    weight : product.product_type[selectedType].weight,
                     price : product.product_type[selectedType].price 
                 },
+                category_name: product.category_name,
                 quantity: 1
             }
         )
@@ -38,7 +39,7 @@ function ProductItem({product}) {
                 <div className='product-info__name'>
                     {product.name}
                 </div>
-                <ProductTypes productTypes={product.product_type} setSelectedType={setSelectedType} selectedType={selectedType}/>
+                <ProductTypes productTypes={product.product_type} setSelectedType={setSelectedType} selectedType={selectedType} categoryName={product.category_name}/>
                 <button className='add-to-cart-button' onClick={addToCart}>Add to Cart</button>
             </div>
         </div>

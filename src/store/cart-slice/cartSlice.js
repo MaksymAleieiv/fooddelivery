@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import mainInstance from "../../api/mainInstance"
 
 const initialState = {
-    cart: []
+    cart: [],
+    orderAddress : {}
 }
 
 export const fetchCart = createAsyncThunk(
@@ -21,6 +22,9 @@ const currentUserSlice = createSlice({
             let index = state.cart.findIndex(item => item.id === action.payload.id && item.selected_type.weight === action.payload.selected_type.weight)
             if(index === -1) state.cart.push(action.payload)
             else state.cart[index].quantity++
+        },
+        changeOrderAddress(state, action) {
+            state.orderAddress = action.payload
         },
         changeQuantity(state, action) {
             let cartItem = state.cart.filter(item => item.id === action.payload.id && item.selected_type.weight === action.payload.weight)[0];

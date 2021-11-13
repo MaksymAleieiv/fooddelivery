@@ -5,14 +5,15 @@ import CartItem from './CartItem/CartItem'
 import CartCheck from './CartCheck/CartCheck'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination } from 'swiper';
+import SwiperCore, {Mousewheel} from 'swiper';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
+import './Cart.scss'
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Mousewheel]);
 
 function Cart(props) {
-    if(props.cart.length === 0 )
+    if(props.cart.length === 0)
         return (
             <div className='cart-container empty'>
                 <div>
@@ -27,7 +28,8 @@ function Cart(props) {
             <div className='cart'>
                 <h3>Shopping cart</h3>
                 <div className='cart__inner'>
-                    <Swiper slidesPerView={4} direction={'vertical'} pagination={{ 'clickable': true }} className="cartSwiper">
+                    <Swiper slidesPerView={4} direction={'vertical'} className="cartSwiper" mousewheel={true} 
+                    >
                         {props.cart.map((cartItem) => (
                             <SwiperSlide>
                                 <CartItem cartItem={cartItem}/>

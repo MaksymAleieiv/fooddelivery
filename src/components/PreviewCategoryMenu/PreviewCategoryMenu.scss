@@ -35,6 +35,7 @@
 .top-category-pagination-control {
     display: flex;
     width: 165px;
+    position: relative;
 
     img {
         cursor: pointer;
@@ -114,6 +115,6 @@
     }
 }
 
-.swiper-pagination {
-    display: none;
+.swiper-button-disabled {
+    visibility: hidden;
 }

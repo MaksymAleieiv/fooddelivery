@@ -7,58 +7,43 @@ import { connect } from 'react-redux'
 import AuthorizationForms from './AuthorizationForms/AuthorizationForms'
 import CartItemsCounter from './CartItemsCounter/CartItemsCounter'
 import Cart from '../../../../Cart/Cart'
+import { customStyles } from '../../../../../overlayCustomStyles/overlayCustomStyles'
 
 function HeaderRight(props) {
-    const [isOpen, setIsOpen] = React.useState(false);
-
-
-    const customStyles = {
-        content : {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)'
-        },
-        overlay : {
-            backgroundColor: 'rgba(0, 0, 0, 0.55)',
-            zIndex: '1000'
-        }
-    };
-    if(!props.isLoggedIn)
+    const [isOpenCart, setIsOpenCart] = React.useState(false);
+    const [isOpenAuth, setIsOpenAuth] = React.useState(false);
         return (
             <>
-                <div className='cart-box' onClick={() => {setIsOpen(true)}}>
+                <div className='cart-box' onClick={() => {setIsOpenCart(true)}}>
                     <img src={CartIcon} alt=''/>
                     <CartItemsCounter/>
                 </div>
-                <Link to='/profile'>
-                    <img src={ProfileIcon} alt=''/>
-                </Link>
+                {props.isLoggedIn ? 
+                    <Link to='/profile'>
+                        <img src={ProfileIcon} alt=''/>
+                    </Link>
+                :
+                    <div style={{cursor: 'pointer'}} onClick={() => {setIsOpenAuth(true)}}>
+                        <img src={ProfileIcon} alt=''/>
+                        <Modal
+                            isOpen={isOpenAuth}
+                            onRequestClose={() => setIsOpenAuth(false)}
+                            style={customStyles}
+                        >
+                            <div className='modal-content__inner'>
+                                <AuthorizationForms setIsOpen={setIsOpenAuth} />
+                            </div>
+                        </Modal>
+                    </div>
+                }
                 
                 <Modal
-                    isOpen={isOpen}
-                    onRequestClose={() => setIsOpen(false)}
+                    isOpen={isOpenCart}
+                    onRequestClose={() => setIsOpenCart(false)}
                     style={customStyles}
                 >
                     <div className='modal-content__inner'>
-                        <Cart setIsOpen={setIsOpen}/>
-                    </div>
-                </Modal>
-            </>
-        )
-    else
-        return (
-            <>
-                <button onClick={() => setIsOpen(true)}>Sign up</button>
-                <Modal
-                    isOpen={isOpen}
-                    onRequestClose={() => setIsOpen(false)}
-                    style={customStyles}
-                >
-                    <div className='modal-content__inner'>
-                        <AuthorizationForms setIsOpen={setIsOpen} />
+                        <Cart setIsOpen={setIsOpenCart}/>
                     </div>
                 </Modal>
             </>

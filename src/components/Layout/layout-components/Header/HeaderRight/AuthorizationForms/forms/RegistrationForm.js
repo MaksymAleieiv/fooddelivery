@@ -2,8 +2,10 @@ import React from 'react'
 import registerUser from '../../../../../../../api/registerUser'
 import PhoneInput from '../common-form-components/PhoneInput/PhoneInput'
 import './styles.scss'
+import { useCurrentUserActions } from '../../../../../../../store/current-user-slice/useCurrentUserActions'
 
 function RegistrationForm(props) {
+    const { changeUser } = useCurrentUserActions();
 
     const initialState = {username : '', first_name : '', last_name : '', password : '', confirm_password : ''}
     const [formState, setFormState] = React.useState(initialState)
@@ -32,6 +34,19 @@ function RegistrationForm(props) {
     }
     
     const onSubmit = () => {
+
+        changeUser({
+            first_name : '123456789',
+            last_name : '123456789',
+            phone : 123456789,
+            userAddress : {
+                city: 'Kriviy Rih',
+                street: 'Shevchenka',
+                house: '38',
+                frame: '1',
+                flat: '56', 
+            }
+        })
         let i = 0;
         for (const [key, value] of Object.entries(formState)) {
             if(value.length === 0) {
