@@ -1,19 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import calculateTotalCartPrice from '../../store/cart-slice/calculateTotalCartPrice'
-import CartItem from './CartItem/CartItem'
 import CartCheck from './CartCheck/CartCheck'
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {Mousewheel} from 'swiper';
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/swiper.min.css'
 import './Cart.scss'
-
-SwiperCore.use([Mousewheel]);
+import CartItems from './CartItems/CartItems'
 
 function Cart(props) {
-    if(props.cart.length === 0)
+    if(props.cartLength === 0)
         return (
             <div className='cart-container empty'>
                 <div>
@@ -25,20 +17,7 @@ function Cart(props) {
         )
     return (
         <div className='cart-container'>
-            <div className='cart'>
-                <h3>Shopping cart</h3>
-                <div className='cart__inner'>
-                    <Swiper slidesPerView={4} direction={'vertical'} className="cartSwiper" mousewheel={true} 
-                    >
-                        {props.cart.map((cartItem) => (
-                            <SwiperSlide>
-                                <CartItem cartItem={cartItem}/>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                    
-                </div>
-            </div>
+            <CartItems/>
             <div className='cart-check-container'>
                 <CartCheck totalPrice={props.totalPrice} setIsOpen={props.setIsOpen}/>
             </div>
@@ -48,8 +27,7 @@ function Cart(props) {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart.cart,
-        totalPrice: calculateTotalCartPrice(state)
+        cartLength: state.cart.cart.length
     }
 }
 

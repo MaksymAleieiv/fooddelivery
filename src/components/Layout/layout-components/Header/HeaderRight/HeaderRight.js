@@ -25,15 +25,6 @@ function HeaderRight(props) {
                 :
                     <div style={{cursor: 'pointer'}} onClick={() => {setIsOpenAuth(true)}}>
                         <img src={ProfileIcon} alt=''/>
-                        <Modal
-                            isOpen={isOpenAuth}
-                            onRequestClose={() => setIsOpenAuth(false)}
-                            style={customStyles}
-                        >
-                            <div className='modal-content__inner'>
-                                <AuthorizationForms setIsOpen={setIsOpenAuth} />
-                            </div>
-                        </Modal>
                     </div>
                 }
                 
@@ -44,6 +35,15 @@ function HeaderRight(props) {
                 >
                     <div className='modal-content__inner'>
                         <Cart setIsOpen={setIsOpenCart}/>
+                    </div>
+                </Modal>
+                <Modal
+                    isOpen={isOpenAuth}
+                    onRequestClose={() => setIsOpenAuth(false)}
+                    style={customStyles}
+                >
+                    <div className='modal-content__inner'>
+                        <AuthorizationForms setIsOpen={setIsOpenAuth} />
                     </div>
                 </Modal>
             </>

@@ -6,6 +6,8 @@ import 'swiper/swiper.scss'
 import Modal from 'react-modal'
 import React from 'react';
 import { useCurrentUserActions } from './store/current-user-slice/useCurrentUserActions'
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 
 function App() {
   const { fetchCurrentUser } = useCurrentUserActions()
@@ -17,8 +19,9 @@ function App() {
       <div className={window.localStorage.getItem('theme') === 'dark' ? 'App dark-theme' : 'App'}>
         <Router>
             <Switch>
-              <Route path="/" component={Home}/>
-              <Route path="/profile" component={Profile}/>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/profile" component={Profile}/>
+              <Redirect to='/'/>
             </Switch>
         </Router>
       </div>

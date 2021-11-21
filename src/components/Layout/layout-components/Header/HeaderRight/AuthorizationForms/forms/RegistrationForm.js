@@ -23,7 +23,7 @@ function RegistrationForm(props) {
 
     const onFocusPassword = (field) => {
         if(field) setFormErrorsState({...formErrorsState, password : ''})
-        if(!field) setFormErrorsState({...formErrorsState, confirm_password : ''})
+        else setFormErrorsState({...formErrorsState, confirm_password : ''})
         if(formErrorsState.password === formErrorsState.confirm_password && formErrorsState.password === 'Passwords do not match') setFormErrorsState({...formErrorsState, password : '', confirm_password : ''})
     }
 
@@ -54,7 +54,7 @@ function RegistrationForm(props) {
                 i++;
             }
         }
-        if(i === 0) registerUser(formState, props.setIsOpen, setFormErrorsState)
+        //if(i === 0) registerUser(formState, props.setIsOpen, setFormErrorsState)
     }
 
     return (

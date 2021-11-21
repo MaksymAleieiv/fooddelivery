@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './CartCheck.scss'
 import CartCheckForm from './CartCheckForm/CartCheckForm'
+import calculateTotalCartPrice from '../../../store/cart-slice/calculateTotalCartPrice'
 
 function CartCheck(props) {
     return (
@@ -21,4 +23,10 @@ function CartCheck(props) {
     )
 }
 
-export default CartCheck
+function mapStateToProps(state) {
+    return {
+        totalPrice: calculateTotalCartPrice(state)
+    }
+}
+
+export default connect(mapStateToProps)(CartCheck)

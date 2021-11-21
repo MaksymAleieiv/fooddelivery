@@ -2,10 +2,13 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import TopPositionsTable from '../../components/TopPositionsTable/TopPositionsTable'
 import TopSlider from '../../components/TopSlider/TopSlider'
-import useTitle from '../../hooks/useTitle'
+import setPageTitle from '../../utils/setPageTitle'
 
 function Home() {
-    useTitle('Home')
+    React.useEffect(() => {
+        setPageTitle('Home')
+    }, [])
+
     return (
         <Layout>
             <TopSlider/>
