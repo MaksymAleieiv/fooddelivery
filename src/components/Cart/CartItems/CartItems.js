@@ -25,7 +25,7 @@ function CartItems(props) {
 
 function mapStateToProps(state) {
     return {
-        cartItems: state.cart.cart
+        cartItems: state.orderReducer.cart
     }
 }
 

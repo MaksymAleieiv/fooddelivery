@@ -8,8 +8,8 @@ function CartCheckFormConfirm(props) {
     const [isOpenAuth, setIsOpenAuth] = React.useState(false)
 
     const createOrder = () => {
-        console.log('order cart => ', props.cartOrder.cart)
-        console.log('order address => ', props.cartOrder.orderAddress)
+        console.log('order cart => ', props.order.cart)
+        console.log('order address => ', props.order.orderAddress)
     }
 
     if(props.isLoggedIn)
@@ -18,8 +18,8 @@ function CartCheckFormConfirm(props) {
         )
     return(
         <>
-            <h4>To procceed you must be logged in</h4>
-            <button className='orange-btn' onClick={() => setIsOpenAuth(true)}>Got it</button>
+            <h4>To procceed you must be signed in</h4>
+            <button className='orange-btn' onClick={() => setIsOpenAuth(true)}>Sign In</button>
             <Modal
                 isOpen={isOpenAuth}
                 onRequestClose={() => setIsOpenAuth(false)}
@@ -35,9 +35,9 @@ function CartCheckFormConfirm(props) {
 
 function mapStateToProps(state) {
     return {
-        userPhone : state.user.currentUser.phone,
-        isLoggedIn : state.user.isLoggedIn,
-        cartOrder : state.cart
+        userPhone : state.userReducer.currentUser.phone,
+        isLoggedIn : state.userReducer.isLoggedIn,
+        order : state.orderReducer
     }
 }
 

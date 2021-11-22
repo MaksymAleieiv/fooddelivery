@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { actions } from './cartSlice'
+import { actions } from './orderSlice'
 
 export const useCartActions = () => {
     const dispatch = useDispatch()

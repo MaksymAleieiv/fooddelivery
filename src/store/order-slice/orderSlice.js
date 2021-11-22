@@ -14,7 +14,7 @@ export const fetchCart = createAsyncThunk(
     }
 )
 
-const currentUserSlice = createSlice({
+const orderSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
@@ -43,7 +43,7 @@ const currentUserSlice = createSlice({
     },
 })
 
-const {reducer, actions} = currentUserSlice
+const {reducer, actions} = orderSlice
 
 export default reducer
 export { actions }

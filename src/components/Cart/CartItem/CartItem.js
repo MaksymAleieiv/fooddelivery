@@ -1,6 +1,6 @@
 import React from 'react'
 import './CartItem.scss'
-import { useCartActions } from '../../../store/cart-slice/useCartActions'
+import { useCartActions } from '../../../store/order-slice/useCartActions'
 
 function CartItem({cartItem}) {
 

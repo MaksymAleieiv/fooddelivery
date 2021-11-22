@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProductItem.scss'
 import ProductTypes from './ProductTypes/ProductTypes'
-import { useCartActions } from '../../store/cart-slice/useCartActions'
+import { useCartActions } from '../../store/order-slice/useCartActions'
 
 function ProductItem({product}) {
     const { addItem } = useCartActions()

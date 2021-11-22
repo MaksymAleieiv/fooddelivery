@@ -1,13 +1,14 @@
 import React from 'react'
-import registerUser from '../../../../../../../api/registerUser'
 import PhoneInput from '../common-form-components/PhoneInput/PhoneInput'
 import './styles.scss'
 import { useCurrentUserActions } from '../../../../../../../store/current-user-slice/useCurrentUserActions'
+import { userApi } from '../../../../../../../api-services/user-service/userService';
 
 function RegistrationForm(props) {
-    const { changeUser } = useCurrentUserActions();
 
-    const initialState = {username : '', first_name : '', last_name : '', password : '', confirm_password : ''}
+    const { changeUser, changeUserToken } = useCurrentUserActions();
+
+    const initialState = {phone : '', first_name : '', last_name : '', password : '', confirm_password : ''}
     const [formState, setFormState] = React.useState(initialState)
     const [formErrorsState, setFormErrorsState] = React.useState(initialState)
 
@@ -32,21 +33,12 @@ function RegistrationForm(props) {
         if(field && formState.password.length < 8 && formState.password.length !== 0) setFormErrorsState({...formErrorsState, password : 'Password is too short'})
         if(!field && formState.confirm_password.length < 8 && formState.confirm_password.length !== 0) setFormErrorsState({...formErrorsState, confirm_password : 'Password is too short'})
     }
+    console.log(userApi)
+    const [registerUser, {isLoadingRegister}] = userApi.useRegisterUserMutation();
+    const [loginUser, {isLoadingLogin}] = userApi.useLoginUserMutation();
     
-    const onSubmit = () => {
-
-        changeUser({
-            first_name : '123456789',
-            last_name : '123456789',
-            phone : 123456789,
-            userAddress : {
-                city: 'Kriviy Rih',
-                street: 'Shevchenka',
-                house: '38',
-                frame: '1',
-                flat: '56', 
-            }
-        })
+    const onSubmit = async () => {
+        
         let i = 0;
         for (const [key, value] of Object.entries(formState)) {
             if(value.length === 0) {
@@ -54,14 +46,26 @@ function RegistrationForm(props) {
                 i++;
             }
         }
-        //if(i === 0) registerUser(formState, props.setIsOpen, setFormErrorsState)
+        if(i === 0) {
+            try {
+                let registrationRes = await registerUser(formState);
+                //changeUser(data)
+                console.log(registrationRes)
+                let loginResponse = await loginUser({phone : formState.phone, password: formState.password})
+                console.log(loginResponse)
+                //let token = loginResponse.data.token
+                //changeUserToken(token)
+            } catch (err) {
+                console.log(err)
+            }
+        }
     }
 
     return (
         <div className='modal-auth-form'>
             <h3>Sign Up</h3>
             <div className='auth-form'>
-                <PhoneInput phoneNumber={formState.username} setPhoneNumber={c => setFormState({...formState, username : c})} phoneNumberError={formErrorsState.username} setPhoneNumberError={c => setFormErrorsState({...formErrorsState, username : c})}/>
+                <PhoneInput phoneNumber={formState.phone} setPhoneNumber={c => setFormState({...formState, phone : c})} phoneNumberError={formErrorsState.phone} setPhoneNumberError={c => setFormErrorsState({...formErrorsState, phone : c})}/>
                 <div className='auth-form__2inline'>
                     <div>
                         <input placeholder='First name' name='first_name' value={formState.first_name} maxLength={32} className={!!formErrorsState.first_name ? 'error' : ''}

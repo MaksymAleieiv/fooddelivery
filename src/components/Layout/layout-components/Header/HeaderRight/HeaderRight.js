@@ -52,7 +52,7 @@ function HeaderRight(props) {
 
 const mapStateToProps = (state) => {
     return {
-      isLoggedIn : state.user.isLoggedIn
+      isLoggedIn : state.userReducer.isLoggedIn
     }
 }
 

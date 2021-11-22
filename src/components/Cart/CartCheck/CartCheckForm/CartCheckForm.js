@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './CartCheckForm.scss';
 import CartCheckFormConfirm from './CartCheckFormConfirm/CartCheckFormConfirm';
-import { useCartActions } from '../../../../store/cart-slice/useCartActions'
+import { useCartActions } from '../../../../store/order-slice/useCartActions'
 
 let initialValue = {
     city: 'Select city',
@@ -67,8 +67,8 @@ function CartCheckForm(props) {
 
 function mapStateToProps(state) {
     return {
-        userAddress : state.user.currentUser.userAddress,
-        orderAddressCart : state.cart.orderAddress
+        userAddress : state.userReducer.currentUser.userAddress,
+        orderAddressCart : state.orderReducer.orderAddress
     }
 }
 

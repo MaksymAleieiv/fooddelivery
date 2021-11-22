@@ -27,7 +27,7 @@ function Cart(props) {
 
 function mapStateToProps(state) {
     return {
-        cartLength: state.cart.cart.length
+        cartLength: state.orderReducer.cart.length
     }
 }
 

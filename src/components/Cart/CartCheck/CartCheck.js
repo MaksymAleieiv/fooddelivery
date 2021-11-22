@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './CartCheck.scss'
 import CartCheckForm from './CartCheckForm/CartCheckForm'
-import calculateTotalCartPrice from '../../../store/cart-slice/calculateTotalCartPrice'
+import calculateTotalCartPrice from '../../../store/order-slice/calculateTotalCartPrice'
 
 function CartCheck(props) {
     return (
